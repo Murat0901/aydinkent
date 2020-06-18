@@ -1,0 +1,118 @@
+/*
+ *Theme Name: Ata 01
+ *Author: Murat Menzilci
+ *Version: 1.0
+ */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
+body {
+  background-color: #f6f6f6;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.my-nav {
+  background-color: #fff;
+  font-size: 1.2em;
+  letter-spacing: 2px;
+}
+
+.my-nav a {
+  color: #1f252b;
+  text-decoration: none;
+}
+
+.my-nav a:hover {
+  color: #cc123f;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.my-nav .dropdown-menu .my-link {
+  margin: 0;
+  padding: 0px;
+}
+
+.my-nav .dropdown-menu .dropdown-item:hover {
+  background-color: #fff;
+  color: #00a3c8;
+  font-weight: bold;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+nav .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(0, 0, 0)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.dropdown:hover > .dropdown-menu {
+  display: block;
+  -webkit-transition: 2s;
+  transition: 2s;
+  border-radius: none;
+}
+
+nav .dropdown-toggle::after {
+  display: none;
+  background-color: transparent;
+  width: 0;
+  height: 0;
+}
+
+.img-list {
+  width: 350px;
+  height: 100%;
+}
+
+#home ul {
+  -webkit-padding-start: 0;
+          padding-inline-start: 0;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[5];
+      grid-template-columns: repeat(5, 1fr);
+  gap: 2em;
+}
+
+#home ul .posts {
+  background-color: #fff;
+  padding: 10px;
+  margin: 2em 0;
+  list-style: none;
+  font-size: 0.9em;
+  border: 1px solid #79839494;
+  border-radius: .25rem;
+}
+
+#home ul .posts:hover {
+  -webkit-box-shadow: 0px 0px 30px 0px #79839494;
+  box-shadow: 0px 0px 30px 0px #79839494;
+}
+
+#home ul .posts .btn {
+  background-color: #cc123f;
+  border: 1px #cc123f solid;
+}
+
+#home ul .posts .btn:hover {
+  color: #ffba08;
+}
+
+#home ul .posts .btn:focus {
+  -webkit-box-shadow: 0 0 0 0.2rem #ffba08;
+          box-shadow: 0 0 0 0.2rem #ffba08;
+}
+
+@media (max-width: 920px) {
+  #home ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  #home ul .posts {
+    margin: 1em 0;
+  }
+}
+/*# sourceMappingURL=style.css.map */
