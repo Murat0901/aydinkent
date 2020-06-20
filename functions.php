@@ -74,3 +74,58 @@ function custom_excerpt_length( $length ) {
     return 20;
 }
 add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
+
+ // POPULAR POST WIDGET
+ class show_popular extends WP_Widget {
+ 
+function show_popular() {
+ $widget_ops = array('classname' => 'show_popular', 'description' => __('Show your popular posts.'));
+ $this->WP_Widget('show_popular', __('Wpgreen - Popular Posts'), $widget_ops, $control_ops);
+ }
+ 
+function widget($args, $instance){
+ extract($args);
+ 
+//$options = get_option('custom_recent');
+ $title = $instance['title'];
+ $postscount = $instance['posts'];
+ 
+//GET the posts
+ global $postcount;
+ 
+$myposts = get_posts(array('orderby' => 'comment_count','numberposts' =>$postscount));
+ 
+echo $before_widget . $before_title . $title . $after_title;
+ 
+//SHOW the posts
+ foreach($myposts as $post){
+ setup_postdata($post);
+ 
+?>
+ 
+<h4><?php the_title(); ?></h4>
+ <p>
+ <a href="<?php the_permalink() ?>"><?php echo  substr(strip_tags($post->post_content), 0, 80);  ?>...</a></p>
+ <?php
+ }
+ echo $after_widget;
+ }
+ 
+function update($newInstance, $oldInstance){
+ $instance = $oldInstance;
+ $instance['title'] = strip_tags($newInstance['title']);
+ $instance['posts'] = $newInstance['posts'];
+ 
+return $instance;
+ }
+ 
+function form($instance){
+ echo '<p style="text-align:right;"><label  for="'.$this->get_field_id('title').'">' . __('Title:') . '  <input style="width: 200px;" id="'.$this->get_field_id('title').'"  name="'.$this->get_field_name('title').'" type="text"  value="'.$instance['title'].'" /></label></p>';
+ 
+echo '<p style="text-align:right;"><label  for="'.$this->get_field_id('posts').'">' . __('Number of Posts:',  'widgets') . ' <input style="width: 50px;"  id="'.$this->get_field_id('posts').'"  name="'.$this->get_field_name('posts').'" type="text"  value="'.$instance['posts'].'" /></label></p>';
+ 
+echo '<input type="hidden" id="custom_recent" name="custom_recent" value="1" />';
+ }
+ }
+ 
+add_action('widgets_init', create_function('', 'return register_widget("show_popular");'));

@@ -3,7 +3,7 @@
  *Author: Murat Menzilci
  *Version: 1.0
  */
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap");
 body {
   background-color: #f6f6f6;
   font-family: 'Montserrat', sans-serif;
@@ -13,6 +13,8 @@ body {
   background-color: #fff;
   font-size: 1.2em;
   letter-spacing: 2px;
+  padding: 10px;
+  border-radius: 10px;
 }
 
 .my-nav a {
@@ -21,9 +23,14 @@ body {
 }
 
 .my-nav a:hover {
-  color: #cc123f;
+  color: #fff;
+  background-color: #cc123f;
   -webkit-transition: 0.4s;
   transition: 0.4s;
+}
+
+.my-nav .navbar-brand {
+  padding: 10px;
 }
 
 .my-nav .dropdown-menu .my-link {
@@ -101,7 +108,19 @@ nav .dropdown-toggle::after {
           box-shadow: 0 0 0 0.2rem #ffba08;
 }
 
-@media (max-width: 920px) {
+@media (max-width: 1024px) {
+  #home ul {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+  }
+  #home ul .posts {
+    margin: 1em 0;
+  }
+}
+
+@media (max-width: 640px) {
   #home ul {
     display: -webkit-box;
     display: -ms-flexbox;

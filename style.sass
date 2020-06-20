@@ -4,7 +4,7 @@
  *Version: 1.0
  */
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap')
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap')
 
 body
   background-color: #f6f6f6
@@ -14,15 +14,17 @@ body
   background-color: #fff
   font-size: 1.2em
   letter-spacing: 2px
-
+  padding: 10px
+  border-radius: 10px
   a
     color: #1f252b
     text-decoration: none
-
     &:hover
-      color: #cc123f
+      color: #fff
+      background-color: #cc123f
       transition: 0.4s
-
+  .navbar-brand
+    padding: 10px
   .dropdown-menu
     .my-link
       margin: 0
@@ -77,7 +79,15 @@ nav .dropdown-toggle::after
         &:focus
           box-shadow: 0 0 0 0.2rem #ffba08
 
-@media ( max-width:920px)
+@media (max-width:1024px)
+  #home
+    ul
+      display: grid
+      grid-template-columns: repeat(2, 1fr)
+      .posts
+        margin: 1em 0  
+
+@media (max-width:640px)
   #home
     ul
       display: flex

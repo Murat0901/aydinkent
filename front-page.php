@@ -17,33 +17,36 @@
 
             <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
 
-                <div class="card posts">
-                    <img class="card-img-top img-fluid" src="<?php
-                            if (has_post_thumbnail()) { // check if the post has a Post Thumbnail assigned to it.
-                                the_post_thumbnail_url('medium');
-                            }
-                            ?>" alt="">
-                    <div class="card-body d-flex flex-column">
-                        <li class="card-title">
-                            <a href="<?php the_permalink() ?>">
-                                <?php the_title() ?>
-                            </a>
-                        </li>
+                    <div class="card posts">
+                        <img class="card-img-top img-fluid" src="
+                    <?php
+                    if (has_post_thumbnail()) { // check if the post has a Post Thumbnail assigned to it.
+                        the_post_thumbnail_url('medium');
+                    }
+                    ?>" alt="">
+                        <div class="card-body d-flex flex-column">
+                            <div class="card-title">
+                                <a href="<?php the_permalink() ?>">
+                                    <?php the_title() ?>
+                                </a>
+                            </div>
 
-                        <li>
                             <div class="card-text">
                                 <?php the_excerpt(); ?>
                             </div>
                             <a href="<?php the_permalink(); ?>" class="btn btn-success mt-auto"> Devamı</a>
-                        </li>
+                        </div>
                     </div>
-                </div>
 
             <?php
             endwhile;
             wp_reset_postdata();
             ?>
         </ul>
+    </div>
+
+    <div class="container">
+        <?php dynamic_sidebar('recentposts'); ?>
     </div>
 </section>
 
