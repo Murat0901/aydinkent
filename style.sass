@@ -15,7 +15,6 @@ body
   font-size: 1.2em
   letter-spacing: 2px
   padding: 10px
-  border-radius: 10px
   a
     color: #1f252b
     text-decoration: none
@@ -55,11 +54,14 @@ nav .dropdown-toggle::after
   height: 100%
 
 #home
+  .recent
+    width: 100%
   ul
     padding-inline-start: 0
     display: grid
-    grid-template-columns: repeat(5, 1fr)
-    gap: 2em
+    grid-template-columns: repeat(2, 1fr)
+    gap: 3em
+    margin: 1em 3em
     .posts
       background-color: #fff
       padding: 10px
@@ -67,7 +69,7 @@ nav .dropdown-toggle::after
       list-style: none
       font-size: 0.9em
       border: 1px solid #79839494
-      border-radius: .25rem
+      border-radius: 10px
       &:hover
         -webkit-box-shadow: 0px 0px 30px 0px #79839494
         box-shadow: 0px 0px 30px 0px #79839494
@@ -78,20 +80,75 @@ nav .dropdown-toggle::after
           color: #ffba08
         &:focus
           box-shadow: 0 0 0 0.2rem #ffba08
+  .wpp-list
+    display: grid
+    grid-template-columns: repeat(4,1fr)
+    .wpp-thumbnail
+      border-radius: 10px
+  .my-cat
+    padding-right: 0 !important
+    padding-left: 0 !important
+    align-items: center
+    justify-content: center
+    ul
+      display: grid
+      grid-template-columns: repeat(4, 1fr)
+      grid-gap: 0
+      list-style: none
+      min-height: 250px
+      a
+        color: #fff
+        text-decoration: none
+      li
+        text-align: center
+        width: 100%
+        min-height: 250px
+        &:nth-child(1)
+          background-color: #e63946
+        &:nth-child(2)
+          background-color: #a8dadc
+        &:nth-child(3)
+          background-color: #3d5a80
+        &:nth-child(4)
+          background-color: #ffe66d
+
+.single
+  .container
+    max-width: 750px
+    line-height: 2em
+
+footer
+  position: relative
+  bottom: 0
+  width: 100%
+  .footer
+    background-color: #ccc
+    margin-top: auto
 
 @media (max-width:1024px)
   #home
-    ul
+    ul,
+    .wpp-list
       display: grid
       grid-template-columns: repeat(2, 1fr)
       .posts
         margin: 1em 0  
 
+@media ( max-width:992 )
+  .navbar-nav
+    .navbar-link
+      ul
+        text-align: center
+  .my-cat
+    flex-direction: column
+
 @media (max-width:640px)
   #home
-    ul
+    ul,
+    .wpp-list
       display: flex
       flex-direction: column
+      margin: 5px
       .posts
         margin: 1em 0  
     

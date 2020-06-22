@@ -17,7 +17,7 @@
 
         gtag('config', 'UA-144264356-3');
     </script>
-
+    <title><?php wp_title(); ?></title>
     <?php wp_head(); ?>
 
 </head>

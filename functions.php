@@ -55,13 +55,29 @@ add_image_size('smallest', 300, 300, true);
 add_image_size('largest', 800, 800, true);
 
 
-//Widget Ekle
+//Popüler Post Widget Ekle
 
 function wpb_init_widgets($id){
     register_sidebar( array(
-        'name' => 'Son Yazılar',
-        'id' => 'recentposts',
+        'name' => 'En Çok Okunanlar',
+        'id' => 'popular',
         'before_widget' => '<div class="recent-posts">',
+        'after_widget' => '</div>',
+        'before_title' => '<h4>',
+        'after_title' => '</h4>'
+    ));
+    register_sidebar( array(
+        'name' => 'Footer Bölümü',
+        'id' => 'footer',
+        'before_widget' => '<div class="footer">',
+        'after_widget' => '</div>',
+        'before_title' => '<h4>',
+        'after_title' => '</h4>'
+    ));
+    register_sidebar( array(
+        'name' => 'Kategoriler',
+        'id' => 'categories',
+        'before_widget' => '<div class="my-cat">',
         'after_widget' => '</div>',
         'before_title' => '<h4>',
         'after_title' => '</h4>'
@@ -102,10 +118,9 @@ echo $before_widget . $before_title . $title . $after_title;
  setup_postdata($post);
  
 ?>
- 
-<h4><?php the_title(); ?></h4>
- <p>
- <a href="<?php the_permalink() ?>"><?php echo  substr(strip_tags($post->post_content), 0, 80);  ?>...</a></p>
+  <p>
+ <a href="<?php the_permalink(); ?>"><?php echo substr(strip_tags($post->post_content), 0, 80);  ?>...</a>
+ </p>
  <?php
  }
  echo $after_widget;
