@@ -7,7 +7,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap')
 
 body
-  background-color: #f6f6f6
+  background-color: #f5f8f9
   font-family: 'Montserrat', sans-serif
   
 .my-nav
@@ -18,10 +18,10 @@ body
   a
     color: #1f252b
     text-decoration: none
+    transition: 0.4s
     &:hover
       color: #fff
       background-color: #cc123f
-      transition: 0.4s
   .navbar-brand
     padding: 10px
   .dropdown-menu
@@ -56,30 +56,30 @@ nav .dropdown-toggle::after
 #home
   .recent
     width: 100%
-  ul
-    padding-inline-start: 0
-    display: grid
-    grid-template-columns: repeat(2, 1fr)
-    gap: 3em
-    margin: 1em 3em
-    .posts
-      background-color: #fff
-      padding: 10px
-      margin: 2em 0
-      list-style: none
-      font-size: 0.9em
-      border: 1px solid #79839494
-      border-radius: 10px
-      &:hover
-        -webkit-box-shadow: 0px 0px 30px 0px #79839494
-        box-shadow: 0px 0px 30px 0px #79839494
-      .btn
-        background-color: #cc123f
-        border: 1px #cc123f solid
+    ul
+      padding-inline-start: 0
+      display: grid
+      grid-template-columns: repeat(2, 1fr)
+      gap: 3em
+      margin: 1em 3em
+      .posts
+        background-color: #fff
+        padding: 10px
+        margin: 2em 0
+        list-style: none
+        font-size: 0.9em
+        border: 1px solid #79839494
+        border-radius: 10px
         &:hover
-          color: #ffba08
-        &:focus
-          box-shadow: 0 0 0 0.2rem #ffba08
+          -webkit-box-shadow: 0px 0px 30px 0px #79839494
+          box-shadow: 0px 0px 30px 0px #79839494
+        .btn
+          background-color: #cc123f
+          border: 1px #cc123f solid
+          &:hover
+            color: #ffba08
+          &:focus
+            box-shadow: 0 0 0 0.2rem #ffba08
   .wpp-list
     display: grid
     grid-template-columns: repeat(4,1fr)
@@ -113,9 +113,19 @@ nav .dropdown-toggle::after
           background-color: #ffe66d
 
 .single
-  .container
-    max-width: 750px
+  .container-fluid
     line-height: 2em
+    max-width: 1720px
+    .card
+      flex-direction: row
+      img
+        max-width: 100px
+        max-height: 100px
+    .recent-posts
+      margin-top: 5em
+    .wpp-list
+      img
+        display: none
 
 footer
   position: relative
@@ -133,6 +143,11 @@ footer
       grid-template-columns: repeat(2, 1fr)
       .posts
         margin: 1em 0  
+  .single
+    .card
+      display: none
+    .recent-posts
+      display: none !important
 
 @media ( max-width:992 )
   .navbar-nav
@@ -144,11 +159,18 @@ footer
 
 @media (max-width:640px)
   #home
-    ul,
-    .wpp-list
+    .recent
+      ul
+        display: flex
+        flex-direction: column
+        margin: 5px
+    .wpp-list,
+    .my-cat
       display: flex
       flex-direction: column
       margin: 5px
+      li
+        width: 100%
       .posts
         margin: 1em 0  
     
