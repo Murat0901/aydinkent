@@ -117,6 +117,7 @@ nav .dropdown-toggle::after {
   display: grid;
   -ms-grid-columns: (1fr)[4];
       grid-template-columns: repeat(4, 1fr);
+  padding-left: 0;
 }
 
 #home .wpp-list .wpp-thumbnail {
@@ -142,6 +143,7 @@ nav .dropdown-toggle::after {
   grid-gap: 0;
   list-style: none;
   min-height: 250px;
+  padding-left: 0;
 }
 
 #home .my-cat ul a {
@@ -155,20 +157,16 @@ nav .dropdown-toggle::after {
   min-height: 250px;
 }
 
-#home .my-cat ul li:nth-child(1) {
+#home .my-cat ul li:nth-child(odd) {
   background-color: #e63946;
 }
 
-#home .my-cat ul li:nth-child(2) {
+#home .my-cat ul li:nth-child(even) {
   background-color: #a8dadc;
 }
 
-#home .my-cat ul li:nth-child(3) {
-  background-color: #3d5a80;
-}
-
-#home .my-cat ul li:nth-child(4) {
-  background-color: #ffe66d;
+#home .my-cat ul li:nth-child(n+5) {
+  display: none;
 }
 
 .single .container-fluid {
@@ -194,6 +192,20 @@ nav .dropdown-toggle::after {
 
 .single .container-fluid .wpp-list img {
   display: none;
+}
+
+.page-id-13 .page-post img {
+  height: calc(60vh - 100px);
+  width: 100%;
+}
+
+.page-id-13 .page-post .container {
+  position: relative;
+  margin-top: -150px;
+  background-color: #f5f8f9;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  line-height: 2.1em;
 }
 
 footer {
@@ -225,6 +237,9 @@ footer .footer {
   .single .recent-posts {
     display: none !important;
   }
+  .page-id-13 .page-post .container {
+    margin-top: -50px;
+  }
 }
 
 @media (max-width: 992) {
@@ -250,8 +265,7 @@ footer .footer {
             flex-direction: column;
     margin: 5px;
   }
-  #home .wpp-list,
-  #home .my-cat {
+  #home .wpp-list {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -261,12 +275,28 @@ footer .footer {
             flex-direction: column;
     margin: 5px;
   }
-  #home .wpp-list li,
-  #home .my-cat li {
+  #home .wpp-list li {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  #home .my-cat ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    margin: 5px;
+    padding-left: 0;
+  }
+  #home .my-cat ul li {
     width: 100%;
   }
-  #home .wpp-list .posts,
-  #home .my-cat .posts {
+  #home .my-cat ul .posts {
     margin: 1em 0;
   }
 }

@@ -6,8 +6,10 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap')
 
+$bg-color: #f5f8f9
+
 body
-  background-color: #f5f8f9
+  background-color: $bg-color
   font-family: 'Montserrat', sans-serif
   
 .my-nav
@@ -83,6 +85,7 @@ nav .dropdown-toggle::after
   .wpp-list
     display: grid
     grid-template-columns: repeat(4,1fr)
+    padding-left: 0
     .wpp-thumbnail
       border-radius: 10px
   .my-cat
@@ -96,6 +99,7 @@ nav .dropdown-toggle::after
       grid-gap: 0
       list-style: none
       min-height: 250px
+      padding-left: 0
       a
         color: #fff
         text-decoration: none
@@ -103,15 +107,13 @@ nav .dropdown-toggle::after
         text-align: center
         width: 100%
         min-height: 250px
-        &:nth-child(1)
+        &:nth-child(odd) //tek sayıdaki elemanlar
           background-color: #e63946
-        &:nth-child(2)
+        &:nth-child(even) //çift sayıdaki elemanlar
           background-color: #a8dadc
-        &:nth-child(3)
-          background-color: #3d5a80
-        &:nth-child(4)
-          background-color: #ffe66d
-
+        &:nth-child(n+5) //5. eleman sonrası görüntülenmez
+          display: none
+          
 .single
   .container-fluid
     line-height: 2em
@@ -126,6 +128,19 @@ nav .dropdown-toggle::after
     .wpp-list
       img
         display: none
+
+.page-id-13
+  .page-post
+    img
+      height: calc(60vh - 100px)
+      width: 100%
+    .container
+      position: relative
+      margin-top: -150px
+      background-color: $bg-color
+      transition: 0.4s
+      line-height: 2.1em
+
 
 footer
   position: relative
@@ -148,6 +163,11 @@ footer
       display: none
     .recent-posts
       display: none !important
+  
+  .page-id-13
+    .page-post
+      .container
+        margin-top: -50px
 
 @media ( max-width:992 )
   .navbar-nav
@@ -164,13 +184,21 @@ footer
         display: flex
         flex-direction: column
         margin: 5px
-    .wpp-list,
-    .my-cat
+    .wpp-list
       display: flex
       flex-direction: column
       margin: 5px
       li
-        width: 100%
-      .posts
-        margin: 1em 0  
+        display: flex
+        flex-wrap: wrap
+    .my-cat
+      ul
+        display: flex
+        flex-direction: column
+        margin: 5px
+        padding-left: 0
+        li
+          width: 100%
+        .posts
+          margin: 1em 0  
     
